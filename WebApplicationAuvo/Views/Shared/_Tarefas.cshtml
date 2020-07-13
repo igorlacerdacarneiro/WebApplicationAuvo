@@ -1,0 +1,81 @@
+﻿@model  List<TarefaModel>
+
+<div class="card p-3">
+    <h5 class="text-left"><span style="border-bottom: 2px solid #000;">Tarefas</span></h5>
+    <br />
+    <div>
+        <p class="text-left"><b>Abertas</b></p>
+        <div class="container">
+            <div class="row font-weight-bold border">
+                <span class="col-2">Código</span>
+                <span class="col-3">Tipo de Tarefa</span>
+                <span class="col-3">Data de Execucao</span>
+                <span class="col-3">Colaborador</span>
+                <span class="col-1"></span>
+            </div>
+
+            @foreach (var tarefa in Model)
+            {
+                @if (!tarefa.Finalizada)
+                {
+                    <div class="row border-bottom border-left border-right pt-2 pb-2">
+                        @if (@tarefa.Tipo == 1)
+                        {
+                            <span class="col-2"><i class="fa fa-circle" style="color: green; font-size: 8px;" aria-hidden="true"></i> @tarefa.Codigo </span>
+                        }
+                        else if (@tarefa.Tipo == 2)
+                        {
+                            <span class="col-2"><i class="fa fa-circle" style="color: yellow; font-size: 8px;" aria-hidden="true"></i> @tarefa.Codigo </span>
+                        }
+                        else
+                        {
+                            <span class="col-2"><i class="fa fa-circle" style="color: gray; font-size: 8px;" aria-hidden="true"></i> @tarefa.Codigo </span>
+                        }
+                        <span class="col-3 p-0 text-left">@tarefa.TipoTarefa</span>
+                        <span class="col-3 p-0">@tarefa.DataExecucao</span>
+                        <span class="col-3">@tarefa.Colaborador</span>
+                        <span class="col-1 p-0">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                }
+            }
+            <br />
+            <p class="text-left"><b>Finalizadas</b></p>
+            <div class="row font-weight-bold border">
+                <span class="col-2">Código</span>
+                <span class="col-3">Tipo de Tarefa</span>
+                <span class="col-3">Data de Execucao</span>
+                <span class="col-3">Colaborador</span>
+                <span class="col-1"></span>
+            </div>
+            @foreach (var tarefa in Model)
+            {
+                @if (tarefa.Finalizada)
+                {
+                    <div class="row border-bottom border-left border-right pt-2 pb-2">
+                        @if (@tarefa.Tipo == 1)
+                        {
+                            <span class="col-2"><i class="fa fa-circle" style="color: green; font-size: 8px;" aria-hidden="true"></i> @tarefa.Codigo </span>
+                        }
+                        else if (@tarefa.Tipo == 2)
+                        {
+                            <span class="col-2"><i class="fa fa-circle" style="color: yellow; font-size: 8px;" aria-hidden="true"></i> @tarefa.Codigo </span>
+                        }
+                        else
+                        {
+                            <span class="col-2"><i class="fa fa-circle" style="color: gray; font-size: 8px;" aria-hidden="true"></i> @tarefa.Codigo </span>
+                        }
+                        <span class="col-3 p-0 text-left">@tarefa.TipoTarefa</span>
+                        <span class="col-3 p-0">@tarefa.DataExecucao</span>
+                        <span class="col-3">@tarefa.Colaborador</span>
+                        <span class="col-1 p-0">
+                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+

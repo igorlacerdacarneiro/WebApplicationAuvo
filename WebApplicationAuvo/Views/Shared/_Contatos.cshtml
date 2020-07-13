@@ -1,0 +1,93 @@
+﻿
+@model List<ContatoModel>
+
+<div class="card p-3 mb-4" id="divFormEditar" style="display: none;">
+    <h6 class="text-left"><span>Editar Contato</span></h6>
+    <form id="formEditar" asp-controller="Home" asp-action="EditarContato">
+        <div class="form-group" style="display: none;">
+            <label for="exampleInputId">Id</label>
+            <input type="number" class="form-control" name="id" id="exampleInputId" placeholder="Id">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputNome">Nome</label>
+            <input type="text" class="form-control" name="nome" id="exampleInputNome" placeholder="Nome">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputCargo">Cargo</label>
+            <input type="text" class="form-control" name="cargo" id="exampleInputCargo" placeholder="Cargo">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail">Email</label>
+            <input type="text" class="form-control" name="email" id="exampleInputEmail" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputTelefone">Telefone</label>
+            <input type="text" class="form-control" name="telefone" id="exampleInputTelefone" placeholder="Telefone">
+        </div>
+        <button type="submit" style="color: #8300E9;" class="btn btn-link">Salvar</button>
+        <a id="lnk" href="javascript:;" class="btn btn-link" style="color: #8300E9;" onclick="editarContatoCancelar()">Cancelar</a>
+    </form>
+</div>
+
+<div class="card p-3">
+    <h5 class="text-left"><span style="border-bottom: 2px solid #000;">Contatos</span></h5>
+    <form class="mt-2 mb-2">
+        <div class="form-group">
+            <input type="text" class="form-control" id="input_buscar" aria-describedby="Buscar" placeholder="Buscar">
+        </div>
+    </form>
+
+    <div>
+        @foreach (var contato in Model)
+        {
+            <div id="accordion">
+                <div class="border mb-2">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" style="width:100%; color: #000;" data-toggle="collapse" data-target="#collapse_@contato.Id" aria-expanded="false" aria-controls="collapse_@contato.Id">
+                            <i class="fa fa-user" style="float: left; padding: 3px;" aria-hidden="true"></i>
+                            <span style="float: left;">@contato.Nome</span>
+                            <i class="fa fa-angle-down" style="float: right; padding: 3px;" aria-hidden="true"></i>
+                        </button>
+                    </h5>
+                    <div id="collapse_@contato.Id" class="collapse" data-parent="#accordion">
+                        <form id="form_@contato.Id">
+                            <div class="form-group m-0" style="display: none;">
+                                <input type="number" disabled class="form-control" style="background:none; border: none;" id="exampleInputId" value="@contato.Id" placeholder="Id">
+                            </div>
+                            <div class="form-group m-0" style="display: none;">
+                                <input type="text" disabled class="form-control" style="background:none; border: none;" id="exampleInputNome" value="@contato.Nome" placeholder="Nome">
+                            </div>
+                            <div class="form-group m-0">
+                                <input type="text" disabled class="form-control" style="background:none; border: none;" id="exampleInputCargo" value="@contato.Cargo" placeholder="Cargo">
+                            </div>
+                            <div class="form-group m-0">
+                                <input type="text" disabled class="form-control" style="background:none; border: none;" id="exampleInputEmail" value="@contato.Email" placeholder="Email">
+                            </div>
+                            <div class="form-group m-0">
+                                <input type="text" disabled class="form-control" style="background:none; border: none;" id="exampleInputTelefone" value="@contato.Telefone" placeholder="Telefone">
+                            </div>
+                            <a id="lnk" href="javascript:;" class="btn btn-link" style="color: #8300E9;" onclick="editarContato(@contato.Id, '@contato.Nome', '@contato.Cargo', '@contato.Email', '@contato.Telefone')">Editar</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    function editarContato(id, nome, cargo, email, telefone) {
+        $("#formEditar input[name=id]").val(id);
+        $("#formEditar input[name=nome]").val(nome);
+        $("#formEditar input[name=cargo]").val(cargo);
+        $("#formEditar input[name=email]").val(email);
+        $("#formEditar input[name=telefone]").val(telefone);
+        $('#divFormEditar').css('display', 'block');
+    }
+
+    function editarContatoCancelar() {
+        $('#divFormEditar').css('display', 'none');
+    }
+</script>
+
+

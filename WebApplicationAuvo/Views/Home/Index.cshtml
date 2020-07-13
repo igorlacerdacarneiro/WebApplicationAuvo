@@ -1,0 +1,52 @@
+﻿@model HomeModel
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<div class="text-center" style="font-size: 12px;">
+    <div class="text-left">
+        <p><span style="color: rgb(131, 0, 233)"><b>Cadastros</b></span> <span style="color: gray"> > Clientes > Sigma Sistemas</span></p>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="card p-3 text-left">
+                <div style="text-align: center;width: 100%; height: 120px;">
+                    <img src="@Model.Usuario.Imagem" />
+                </div>
+                <div>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    <p style="font-size: 16px">
+                        <i class="fa fa-building" aria-hidden="true"></i> <b>@Model.Usuario.Nome</b>
+                    </p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i> @Model.Usuario.Telefone</p>
+                    <br />
+                    <p><i class="fa fa-envelope-o" aria-hidden="true"></i> @Model.Usuario.Email</p>
+                    <br />
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> @Model.Usuario.Endereco</p>
+                    <div id="content">
+                        <iframe style="width: 100%; border: none;" name="" src="@Model.Usuario.Localizacao"></iframe>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <p style="font-size: 13px"><b>Mais Informações</b></p>
+                    <span style="color: #808080">Segmento</span>
+                    <p>@Model.Usuario.Segmento</p>
+                    <span style="color: #808080">CPF/CNPJ</span>
+                    <p>@Model.Usuario.CnpjCpf</p>
+                    <span style="color: #808080">Codigo do Sistema</span>
+                    <p>@Model.Usuario.CodigoSistema</p>
+                    <span style="color: #808080">Codigo Externo</span>
+                    <p>@Model.Usuario.CodigoExterno</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            @Html.Partial("_Tarefas", Model.Tarefas);
+        </div>
+
+        <div class="col-3 text-left">
+            @Html.Partial("_Contatos", Model.Contatos);
+        </div>
+    </div>
+</div>
