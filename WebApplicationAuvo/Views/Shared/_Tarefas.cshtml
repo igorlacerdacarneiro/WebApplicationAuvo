@@ -35,7 +35,12 @@
                         <span class="col-3 p-0">@tarefa.DataExecucao</span>
                         <span class="col-3">@tarefa.Colaborador</span>
                         <span class="col-1 p-0">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            <form asp-action="RemoverTarefa">
+                                <div class="form-group" style="display: none;">
+                                    <input type="number" class="form-control" name="id" value="@tarefa.Id" id="InputId" placeholder="Id">
+                                </div>
+                                <button type="submit" style="color: #000;" class="btn btn-link"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            </form>
                         </span>
                     </div>
                 }

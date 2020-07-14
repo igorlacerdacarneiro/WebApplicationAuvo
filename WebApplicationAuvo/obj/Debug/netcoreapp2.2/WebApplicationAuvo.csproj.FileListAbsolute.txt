@@ -29,3 +29,4 @@ C:\Users\Isthmus Sistemas\Documents\WebApplicationAuvo\WebApplicationAuvo\obj\De
 C:\Users\Isthmus Sistemas\Documents\WebApplicationAuvo\WebApplicationAuvo\obj\Debug\netcoreapp2.2\WebApplicationAuvo.dll
 C:\Users\Isthmus Sistemas\Documents\WebApplicationAuvo\WebApplicationAuvo\obj\Debug\netcoreapp2.2\WebApplicationAuvo.pdb
 C:\Users\Isthmus Sistemas\Documents\WebApplicationAuvo\WebApplicationAuvo\obj\Debug\netcoreapp2.2\WebApplicationAuvo.csproj.CopyComplete
+C:\Users\Isthmus Sistemas\Documents\WebApplicationAuvo\WebApplicationAuvo\obj\Debug\netcoreapp2.2\WebApplicationAuvo.csprojAssemblyReference.cache

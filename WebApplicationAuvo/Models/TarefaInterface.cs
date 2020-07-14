@@ -8,6 +8,6 @@ namespace WebApplicationAuvo.Models
     public interface TarefaInterface
     {
         List<TarefaModel> GetAllTarefas();
-        void DeleteTarefa(TarefaModel tarefa);
+        void DeleteTarefa(int id);
     }
 }

@@ -31,11 +31,19 @@
 
 <div class="card p-3">
     <h5 class="text-left"><span style="border-bottom: 2px solid #000;">Contatos</span></h5>
-    <form class="mt-2 mb-2">
-        <div class="form-group">
-            <input type="text" class="form-control" id="input_buscar" aria-describedby="Buscar" placeholder="Buscar">
-        </div>
-    </form>
+    <div style="display: flex;" class="mb-4">
+
+        <form asp-controller="Home" asp-action="Index" style="margin: auto;">
+            <div class="m-0" style="display: flex">
+                <input type="text" class="form-control" name="SearchString" placeholder="Buscar">
+                <input type="submit" style="color: #8300E9;" value="Filter" />
+            </div>
+        </form>
+
+        <form class="mt-2 mb-2" asp-action="RebaseContatos">
+            <button type="submit" style="color: #8300E9;" class="btn btn-link"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </form>
+    </div>
 
     <div>
         @foreach (var contato in Model)

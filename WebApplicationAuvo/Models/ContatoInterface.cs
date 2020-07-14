@@ -8,7 +8,8 @@ namespace WebApplicationAuvo.Models
     public interface ContatoInterface
     {
         List<ContatoModel> GetAllContatos();
+        void RebaseContatos();
         void UpdateContato(ContatoModel contato);
-        ContatoModel GetContato(string id);
+        void GetContato(string id);
     }
 }

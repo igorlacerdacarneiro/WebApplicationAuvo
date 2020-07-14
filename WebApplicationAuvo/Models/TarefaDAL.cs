@@ -11,9 +11,10 @@ namespace WebApplicationAuvo.Models
         private List<TarefaModel> tarefas = new TarefasDados().getTarefas();
 
 
-        public void DeleteTarefa(TarefaModel tarefa)
+        public void DeleteTarefa(int id)
         {
-            this.tarefas.Remove(tarefa);
+            var item = this.tarefas.Where(t => t.Id == id).First();
+            this.tarefas.Remove(item);
         }
 
         public List<TarefaModel> GetAllTarefas()

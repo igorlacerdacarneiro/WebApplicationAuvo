@@ -29,23 +29,19 @@ namespace WebApplicationAuvo.Controllers
             });
         }
 
-        [HttpGet]
-        public IActionResult BuscarContato(string id)
+        [HttpPost]
+        public IActionResult Index(string searchString, bool notUsed)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            ContatoModel contato = contatoInterface.GetContato(id);
-
-            if (contato == null)
-            {
-                return NotFound();
-            }
-            return View(contato);
+            contatoInterface.GetContato(searchString);
+            return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult RebaseContatos()
+        {
+            contatoInterface.RebaseContatos();
+            return RedirectToAction("Index");
+        }
 
         [HttpPost]
         public IActionResult EditarContato(ContatoModel contato)
@@ -54,10 +50,10 @@ namespace WebApplicationAuvo.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult RemoverTarefa(TarefaModel tarefa)
+        public IActionResult RemoverTarefa(int id)
         {
-            tarefaInterface.DeleteTarefa(tarefa);
-            return View();
+            tarefaInterface.DeleteTarefa(id);
+            return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()
